@@ -1,26 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
+import Navigation from './components/Navigation/Navigation';
+import Logo from './components/Logo/Logo';
+import ImageLinkform from './components/ImageLinkform/ImageLinkform';
+import Rank from './components/Rank/Rank';
 import './App.css';
+import Particles from 'react-particles-js';
+import { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const particlesOptions={
+  particles:{
+    number:{
+      value:80,
+      density: {
+        enable: true,
+        value_area: 800,
+      }
+    }
+  }
+}
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      input: '',
+    }
+  }
+
+  onInputChage=(event)=>{
+    console.log(event);
+  }
+
+  render() {
+      return (
+        <div className="App">
+          <Particles className='particles' 
+                    params={particlesOptions} />
+          <Navigation />
+          <Logo />
+          <Rank />
+          <ImageLinkform />
+          {/*
+          <FaceRecognition /> */}
+        </div>
+      )
+  } 
 }
 
 export default App;
